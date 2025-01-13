@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lorent</title>
+    <link rel="icon" href="https://cdn.13v.be/lorent.ico" type="image/x-icon"> <!-- Ajout de la favicon -->
     <style>
         body {
             margin: 0;
@@ -18,9 +19,11 @@
 
         h1 {
             color: #fff;
-            font-size: 10rem;
+            font-size: 8vw; /* Taille du texte responsive */
             text-align: center;
             animation: changeFont 5s infinite;
+            position: relative;
+            z-index: 1; /* Pour s'assurer que le texte est au-dessus des formes */
         }
 
         @keyframes changeFont {
@@ -34,8 +37,8 @@
 
         .shape {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 20vw; /* Taille des formes responsive */
+            height: 20vw;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.2);
             animation: spin 5s infinite linear, move 10s infinite ease-in-out;
