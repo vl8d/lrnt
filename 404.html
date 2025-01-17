@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lorent</title>
+    <link rel="icon" href="https://cdn.13v.be/lorent.ico" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: fixed; /* Prevents bouncing on mobile */
+            width: 100%;
+        }
+
+        h1 {
+            color: #fff;
+            /* Use clamp for responsive text that won't get too big or too small */
+            font-size: clamp(2rem, 8vw, 8rem);
+            text-align: center;
+            animation: changeFont 5s infinite;
+            position: relative;
+            z-index: 1;
+            /* Prevent text selection on mobile */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            /* Ensure text stays visible on smaller screens */
+            margin: 0 10px;
+        }
+
+        @keyframes changeFont {
+            0% { font-family: 'Arial', sans-serif; }
+            20% { font-family: 'Courier New', monospace; }
+            40% { font-family: 'Times New Roman', serif; }
+            60% { font-family: 'Comic Sans MS', cursive; }
+            80% { font-family: 'Impact', fantasy; }
+            100% { font-family: 'Verdana', sans-serif; }
+        }
+
+        .shape {
+            position: absolute;
+            /* Use clamp for responsive shapes that won't get too big or too small */
+            width: clamp(40px, 20vw, 200px);
+            height: clamp(40px, 20vw, 200px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: spin 5s infinite linear, move 10s infinite ease-in-out;
+            /* Improve performance on mobile */
+            will-change: transform;
+            /* Prevent shape from causing overflow issues on small screens */
+            box-sizing: border-box;
+            /* Better touch handling */
+            touch-action: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes move {
+            0% { top: 0%; left: 0%; }
+            25% { top: 0%; left: 80%; } /* Reduced from 90% to prevent overflow */
+            50% { top: 80%; left: 80%; }
+            75% { top: 80%; left: 0%; }
+            100% { top: 0%; left: 0%; }
+        }
+
+        /* Adjust starting positions for better mobile display */
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            background: #ff00ff;
+            animation-duration: 7s;
+        }
+        .shape:nth-child(2) {
+            top: 30%;
+            left: 70%;
+            background: #00ffff;
+            animation-duration: 8s;
+        }
+        .shape:nth-child(3) {
+            top: 60%;
+            left: 40%;
+            background: #ffff00;
+            animation-duration: 9s;
+        }
+        .shape:nth-child(4) {
+            top: 80%;
+            left: 10%;
+            background: #ff0000;
+            animation-duration: 6s;
+        }
+        .shape:nth-child(5) {
+            top: 50%;
+            left: 80%;
+            background: #00ff00;
+            animation-duration: 10s;
+        }
+        .shape:nth-child(6) {
+            top: 20%;
+            left: 50%;
+            background: #0000ff;
+            animation-duration: 5s;
+        }
+        .shape:nth-child(7) {
+            top: 70%;
+            left: 30%;
+            background: #ff9900;
+            animation-duration: 7s;
+        }
+        .shape:nth-child(8) {
+            top: 40%;
+            left: 60%;
+            background: #9900ff;
+            animation-duration: 8s;
+        }
+        .shape:nth-child(9) {
+            top: 90%;
+            left: 90%;
+            background: #00ccff;
+            animation-duration: 9s;
+        }
+        .shape:nth-child(10) {
+            top: 10%;
+            left: 80%;
+            background: #ffcc00;
+            animation-duration: 6s;
+        }
+
+        /* Add media queries for very small screens */
+        @media (max-width: 360px) {
+            .shape {
+                /* Even smaller shapes for very small screens */
+                width: clamp(30px, 15vw, 150px);
+                height: clamp(30px, 15vw, 150px);
+            }
+
+            h1 {
+                font-size: clamp(1.5rem, 7vw, 6rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>LORENT</h1>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+</body>
+</html>
